@@ -1,0 +1,53 @@
+# ===================================================================
+# Open TTS Studio — Backend Requirements
+# ===================================================================
+# Install: pip install -r requirements.txt --break-system-packages
+#
+# NOTE: pyaudio requires system portaudio library:
+#   Linux:   sudo apt install portaudio19-dev
+#   macOS:   brew install portaudio
+#   Windows: works out of the box via pip wheel
+# ===================================================================
+
+# --- Web framework -------------------------------------------------
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pydantic==2.9.2
+websockets==13.1
+
+# --- Audio I/O & processing -----------------------------------------
+pyaudio==0.2.14
+soundfile==0.12.1
+librosa==0.10.2
+scipy==1.14.1
+numpy>=1.26.4,<2.0.0         # Pin below 2.x for librosa compat
+
+# --- Voice QC (optional — install manually if you want consistency checks) ---
+# resemblyzer pulls in webrtcvad which fails to build on Windows Python 3.11+
+# due to missing Windows SDK headers. Omitted from default install.
+# voice_encoder.py gracefully skips if not installed.
+# To install on Linux/macOS:  pip install resemblyzer==0.1.4
+# To install on Windows:      pip install webrtcvad-wheels resemblyzer==0.1.4 --no-deps
+
+# --- ML core (training + inference) ----------------------------------
+transformers==4.45.2
+accelerate==0.34.2
+peft==0.13.0
+
+# --- Inference optimization -------------------------------------------
+onnx==1.16.2
+onnxruntime==1.19.2
+# onnxruntime-gpu==1.19.2   # uncomment instead of onnxruntime if using CUDA inference
+
+# --- F5-TTS base architecture ------------------------------------------
+f5-tts>=1.0.0                   # pip install f5-tts
+cached-path>=1.6.3              # used by f5-tts for HuggingFace model downloads
+# NOTE: F5-TTS auto-downloads model weights from HuggingFace on first run.
+#       Model: hf://SWivid/F5-TTS/F5TTS_v1_Base/model_1250000.safetensors (~1.3GB)
+#       License: CC-BY-NC (base weights) — see https://github.com/SWivid/F5-TTS
+# NOTE: F5-TTS native sample rate is 24kHz (not 22050Hz used internally).
+#       trainer.py and inference.py handle resampling automatically.
+
+# --- Utilities -----------------------------------------------------
+httpx==0.27.2               # used by FastAPI TestClient in tests
