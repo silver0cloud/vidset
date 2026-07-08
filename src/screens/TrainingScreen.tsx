@@ -26,6 +26,7 @@ export default function TrainingScreen() {
   const [phase, setPhase] = useState<Phase>("dataset");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [lossPoints, setLossPoints] = useState<number[]>([]);
+  const [loadingMessage, setLoadingMessage] = useState<string>("");
   const cleanupRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
@@ -57,6 +58,11 @@ export default function TrainingScreen() {
     const cleanup = api.startTraining({
       epochs: 100,
       onProgress: (data) => {
+        if (data.status === "loading" || data.status === "resuming") {
+          setLoadingMessage(data.message || "Loading model...");
+          return;
+        }
+        setLoadingMessage("");
         setTrainingProgress(data);
         if (typeof data.loss === "number") {
           setLossPoints((prev) => [...prev.slice(-49), data.loss]);
@@ -101,6 +107,13 @@ export default function TrainingScreen() {
           <button className="primary-btn" onClick={handleStartTraining}>
             Start training
           </button>
+        </div>
+      )}
+
+      {phase === "training" && loadingMessage && !trainingProgress && (
+        <div className="status-line">
+          <span className="spinner" />
+          <span>{loadingMessage}</span>
         </div>
       )}
 
