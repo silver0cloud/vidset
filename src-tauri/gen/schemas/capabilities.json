@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Default capability for Open TTS Studio main window","local":true,"windows":["main"],"permissions":["core:default","shell:allow-spawn","shell:allow-kill",{"identifier":"shell:allow-execute","allow":[{"args":true,"name":"binaries/tts-backend","sidecar":true}]}]}}
