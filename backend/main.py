@@ -1,6 +1,4 @@
 """
-main.py
--------
 FastAPI backend wiring the full TTS pipeline together.
 
 REST endpoints  : script, recording session CRUD, dataset build, voice profile
