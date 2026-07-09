@@ -37,7 +37,7 @@ export default function WelcomeScreen() {
   return (
     <div className="screen welcome-screen">
       <div className="welcome-content">
-        <span className="eyebrow">Open TTS Studio</span>
+        <span className="eyebrow">Occano</span>
         <h1>Clone your voice in three minutes.</h1>
         <p className="lead">
           Record 35 short sentences in a quiet space, and we'll build a
