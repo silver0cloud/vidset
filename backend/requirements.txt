@@ -1,5 +1,5 @@
 # ===================================================================
-# Open TTS Studio — Backend Requirements
+# Occano — Backend Requirements
 # ===================================================================
 # Install: pip install -r requirements.txt --break-system-packages
 #
