@@ -147,7 +147,7 @@ The sidecar binary is automatically named `tts-backend-<target-triple>` by `buil
 
 ```
 occano/
-├── backend/                     Python FastAPI backend
+├── backend/                       Python FastAPI backend
 │   ├── main.py                    REST + WebSocket API (20 routes)
 │   ├── recorder.py                Press-hold mic recording, take management
 │   ├── validator.py               Audio quality checks (7 soft warnings)
@@ -159,7 +159,7 @@ occano/
 │   ├── curated_script.json        35 phoneme-rich recording sentences
 │   └── requirements.txt
 │
-├── src/                        React frontend
+├── src/                            React frontend
 │   ├── screens/
 │   │   ├── WelcomeScreen.tsx       Onboarding
 │   │   ├── RecordingScreen.tsx     Press-hold recording + takes management
@@ -173,15 +173,15 @@ occano/
 │   ├── App.css / index.css         Styles
 │   └── main.tsx
 │
-├── src-tauri/                  Rust native shell
+├── src-tauri/                      Rust native shell
 │   ├── src/main.rs                 Sidecar spawn + port wiring
 │   ├── capabilities/default.json   Shell permissions (Tauri v2)
 │   ├── Cargo.toml
 │   ├── build.rs
 │   └── tauri.conf.json
 │
-├── build_sidecar.py            PyInstaller packaging script
-├── WIRING.md                   Dev vs. production setup details
+├── build_sidecar.py                PyInstaller packaging script
+├── WIRING.md                       Dev vs. production setup details
 ├── package.json
 ├── vite.config.ts
 ├── tsconfig.json
