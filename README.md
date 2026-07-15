@@ -62,15 +62,14 @@ Record 35 sentences → validate & clean → build dataset
 | Layer | Technology |
 |---|---|
 | ML core | PyTorch + F5-TTS (DiT + flow matching) |
-| Fine-tuning | PEFT LoRA (`target_modules="all-linear"`) |
+| Fine-tuning | PEFT LoRA |
 | Audio processing | torchaudio, librosa, scipy, soundfile |
-| Voice QC | resemblyzer (speaker embeddings) |
 | Backend | FastAPI + uvicorn |
 | Frontend | React 18 + TypeScript + Zustand |
-| Desktop shell | Tauri 2 (Rust) |
+| Desktop shell | Tauri (Rust) |
 | Packaging | PyInstaller (Python sidecar binary) |
 
-## Prerequisites
+## Dependencies 
 
 - **Python** ≥ 3.10
 - **Node.js** ≥ 18
@@ -94,9 +93,9 @@ brew install portaudio ffmpeg
 # portaudio ships via pip wheel; install ffmpeg from https://ffmpeg.org
 ```
 
-## Development setup
+## Quick Start 
 
-The fastest way to work on the project — no sidecar build required.
+Setup a virtual environment, then run two terminals and paste the following commands.
 
 **Terminal 1 — Backend**
 
@@ -106,7 +105,7 @@ pip install -r requirements.txt
 python main.py 8000
 ```
 
-**Terminal 2 — Frontend (web only)**
+**Terminal 2 — Frontend**
 
 ```bash
 npm install
@@ -115,6 +114,7 @@ npm run dev
 ```
 
 **Terminal 2 (alternative) — Full Tauri shell**
+**For running the desktop app-** Run the following commands in the terminal 2 in place of React frontend.
 
 ```bash
 npm install
