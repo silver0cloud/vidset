@@ -23,12 +23,12 @@ Occano is an open-source desktop application that lets anyone record their voice
 
 | | |
 |---|---|
-| 🎙️ **Guided recording** | 35 curated sentences covering all 44 English phonemes across 5 emotional tones |
-| ✅ **Real-time quality checks** | Instant feedback on clipping, noise, silence, and volume as you record |
-| 🧠 **LoRA fine-tuning** | Lightweight adapter training on F5-TTS (~16GB VRAM recommended, CPU fallback supported) |
-| 🔊 **Streaming inference** | Speech streams back as it's generated — no waiting for full synthesis |
-| 🔒 **Fully local** | One-time model download, then everything runs offline |
-| 💻 **Native desktop app** | Built with Tauri + React, ships as a single installer |
+|  **Guided recording** | 35 curated sentences covering all 44 English phonemes across 5 emotional tones |
+|  **Real-time quality checks** | Instant feedback on clipping, noise, silence, and volume as you record |
+|  **LoRA fine-tuning** | Lightweight adapter training on F5-TTS (~16GB VRAM recommended, CPU fallback supported) |
+|  **Streaming inference** | Speech streams back as it's generated — no waiting for full synthesis |
+|  **Fully local** | One-time model download, then everything runs offline |
+|  **Native desktop app** | Built with Tauri + React, ships as a single installer |
 
 ## Architecture
 
