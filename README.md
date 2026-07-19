@@ -31,23 +31,23 @@ Occano is an open-source desktop application that lets anyone record their voice
 ## Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                      Tauri Desktop App                       │
-│                                                              │
-│   ┌────────────────────┐          ┌───────────────────────┐  │
-│   │   React Frontend   │  ◄────►  │  Python FastAPI       │  │
-│   │   (4 screens)      │          │  Backend (sidecar)    │  │
-│   │   Zustand state    │          │                       │  │
-│   └────────────────────┘          │  audio_processor/     │  │
-│                                   |  recorder.py          │  │
-│   WebSocket streams:              |  validator.py         │  │
-│     /ws/train  (live loss)        |  cleaner.py           │  │
-│     /ws/speak  (audio chunks)     |  segmenter.py         │  │
-│                                   |  voice_encoder.py (QC)│  │
-│                                   |  trainer.py (LoRA)    │  │
-│                                   |  inference.py (stream)│  │
-│                                   └───────────────────────┘  │
-└──────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│                      Tauri Desktop App                        │
+│                                                               │
+│   ┌────────────────────┐          ┌────────────────────────┐  │
+│   │   React Frontend   │  ◄────►  │  Python FastAPI        │  │
+│   │   (4 screens)      │          │  Backend (sidecar)     │  │
+│   │   Zustand state    │          │                        │  │
+│   └────────────────────┘          │  audio_processor/      │  │
+│                                   |  recorder.py           │  │
+│   WebSocket streams:              |  validator.py          │  │
+│     /ws/train  (live loss)        |  cleaner.py            │  │
+│     /ws/speak  (audio chunks)     |  segmenter.py          │  │
+│                                   |  voice_encoder.py (QC) │  │
+│                                   |  trainer.py (LoRA)     │  │
+│                                   |  inference.py (stream) │  │
+│                                   └────────────────────────┘  │
+└───────────────────────────────────────────────────────────────┘
 ```
 
 **User flow**
